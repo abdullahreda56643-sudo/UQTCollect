@@ -1,0 +1,858 @@
+/* ===================================
+   تحسينات الوضع المظلم - نظام إدارة المتدربين
+   =================================== */
+
+/* متغيرات الألوان للوضع المظلم */
+:root {
+    --primary-color: #3b82f6;
+    --primary-dark: #1d4ed8;
+    --primary-light: #60a5fa;
+    --success-color: #10b981;
+    --success-dark: #059669;
+    --warning-color: #f59e0b;
+    --warning-dark: #d97706;
+    --error-color: #ef4444;
+    --error-dark: #dc2626;
+    --info-color: #06b6d4;
+    --info-dark: #0891b2;
+    
+    /* ألوان الخلفية */
+    --dark-bg-primary: #0f172a;
+    --dark-bg-secondary: #1e293b;
+    --dark-bg-tertiary: #334155;
+    --dark-bg-hover: #475569;
+    
+    /* ألوان النصوص */
+    --dark-text-primary: #f8fafc;
+    --dark-text-secondary: #cbd5e1;
+    --dark-text-muted: #94a3b8;
+    
+    /* ألوان الحدود */
+    --dark-border-primary: #334155;
+    --dark-border-secondary: #475569;
+}
+
+/* ===================================
+   تحسينات عامة للوضع المظلم
+   =================================== */
+.dark {
+    color-scheme: dark;
+}
+
+.dark body {
+    background-color: var(--dark-bg-primary);
+    color: var(--dark-text-primary);
+}
+
+/* ===================================
+   تحسينات الأزرار - Buttons
+   =================================== */
+
+/* أزرار أساسية */
+.dark .btn,
+.dark button:not(.unstyled) {
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+/* زر أساسي - Primary */
+.dark .btn-primary,
+.dark .bg-blue-600,
+.dark .bg-primary-600 {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    color: white !important;
+    border: 1px solid #2563eb !important;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.dark .btn-primary:hover,
+.dark .bg-blue-600:hover,
+.dark .bg-primary-600:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+}
+
+.dark .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+}
+
+.dark .btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* زر ثانوي - Secondary */
+.dark .btn-secondary,
+.dark .bg-gray-600 {
+    background-color: var(--dark-bg-tertiary) !important;
+    color: var(--dark-text-primary) !important;
+    border: 1px solid var(--dark-border-secondary) !important;
+}
+
+.dark .btn-secondary:hover,
+.dark .bg-gray-600:hover {
+    background-color: var(--dark-bg-hover) !important;
+    border-color: #64748b !important;
+    transform: translateY(-1px);
+}
+
+/* زر النجاح - Success */
+.dark .btn-success,
+.dark .bg-green-600 {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+    border: 1px solid #059669 !important;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.dark .btn-success:hover,
+.dark .bg-green-600:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    transform: translateY(-2px);
+}
+
+/* زر التحذير - Warning */
+.dark .btn-warning,
+.dark .bg-yellow-600,
+.dark .bg-amber-600 {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    color: white !important;
+    border: 1px solid #d97706 !important;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+.dark .btn-warning:hover,
+.dark .bg-yellow-600:hover,
+.dark .bg-amber-600:hover {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+}
+
+/* زر الخطر - Danger */
+.dark .btn-danger,
+.dark .bg-red-600 {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+    color: white !important;
+    border: 1px solid #dc2626 !important;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.dark .btn-danger:hover,
+.dark .bg-red-600:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    transform: translateY(-2px);
+}
+
+/* زر المعلومات - Info */
+.dark .btn-info,
+.dark .bg-cyan-600 {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%) !important;
+    color: white !important;
+    border: 1px solid #0891b2 !important;
+    box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
+}
+
+.dark .btn-info:hover,
+.dark .bg-cyan-600:hover {
+    background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%) !important;
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+    transform: translateY(-2px);
+}
+
+/* أزرار Outline */
+.dark .btn-outline-primary {
+    background-color: transparent !important;
+    color: var(--primary-light) !important;
+    border: 2px solid var(--primary-light) !important;
+}
+
+.dark .btn-outline-primary:hover {
+    background-color: rgba(59, 130, 246, 0.15) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.dark .btn-outline-secondary {
+    background-color: transparent !important;
+    color: var(--dark-text-secondary) !important;
+    border: 2px solid var(--dark-border-secondary) !important;
+}
+
+.dark .btn-outline-secondary:hover {
+    background-color: var(--dark-bg-tertiary) !important;
+    color: var(--dark-text-primary) !important;
+}
+
+/* أزرار صغيرة */
+.dark .btn-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+/* أزرار كبيرة */
+.dark .btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+}
+
+/* زر معطل */
+.dark .btn:disabled,
+.dark .btn.disabled,
+.dark button:disabled {
+    background-color: var(--dark-bg-tertiary) !important;
+    color: var(--dark-text-muted) !important;
+    border-color: var(--dark-border-primary) !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* أزرار الأيقونات فقط */
+.dark .btn-icon,
+.dark button[aria-label] {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--dark-bg-secondary);
+    color: var(--dark-text-secondary);
+    border: 1px solid var(--dark-border-primary);
+}
+
+.dark .btn-icon:hover {
+    background-color: var(--dark-bg-tertiary);
+    color: var(--dark-text-primary);
+}
+
+/* ===================================
+   تحسينات النماذج - Forms
+   =================================== */
+
+/* حقول الإدخال */
+.dark .form-control,
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark input[type="number"],
+.dark input[type="tel"],
+.dark input[type="date"],
+.dark input[type="datetime-local"],
+.dark input[type="search"],
+.dark textarea {
+    background-color: var(--dark-bg-secondary) !important;
+    border: 1px solid var(--dark-border-primary) !important;
+    color: var(--dark-text-primary) !important;
+    transition: all 0.3s ease;
+}
+
+.dark .form-control::placeholder,
+.dark input::placeholder,
+.dark textarea::placeholder {
+    color: var(--dark-text-muted) !important;
+    opacity: 0.7;
+}
+
+.dark .form-control:focus,
+.dark input:focus,
+.dark textarea:focus {
+    background-color: var(--dark-bg-secondary) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--dark-text-primary) !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+    outline: none;
+}
+
+/* القوائم المنسدلة */
+.dark .form-select,
+.dark select {
+    background-color: var(--dark-bg-secondary) !important;
+    border: 1px solid var(--dark-border-primary) !important;
+    color: var(--dark-text-primary) !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+
+.dark .form-select:focus,
+.dark select:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+}
+
+.dark select option {
+    background-color: var(--dark-bg-secondary);
+    color: var(--dark-text-primary);
+}
+
+/* مربعات الاختيار و Radio buttons */
+.dark input[type="checkbox"],
+.dark input[type="radio"] {
+    background-color: var(--dark-bg-secondary);
+    border: 2px solid var(--dark-border-secondary);
+}
+
+.dark input[type="checkbox"]:checked,
+.dark input[type="radio"]:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Labels */
+.dark label {
+    color: var(--dark-text-secondary);
+    font-weight: 500;
+}
+
+/* رسائل التحقق */
+.dark .invalid-feedback,
+.dark .error-message {
+    color: #fca5a5 !important;
+}
+
+.dark .valid-feedback,
+.dark .success-message {
+    color: #6ee7b7 !important;
+}
+
+.dark .form-control.is-invalid,
+.dark input.is-invalid {
+    border-color: var(--error-color) !important;
+}
+
+.dark .form-control.is-valid,
+.dark input.is-valid {
+    border-color: var(--success-color) !important;
+}
+
+/* ===================================
+   تحسينات الجداول - Tables
+   =================================== */
+
+/* جداول عامة */
+.dark table,
+.dark .table {
+    background-color: var(--dark-bg-secondary);
+    color: var(--dark-text-primary);
+    border-color: var(--dark-border-primary);
+}
+
+.dark table thead,
+.dark .table thead {
+    background-color: var(--dark-bg-tertiary);
+}
+
+.dark table th,
+.dark .table th {
+    background-color: var(--dark-bg-tertiary) !important;
+    color: var(--dark-text-primary) !important;
+    border-color: var(--dark-border-secondary) !important;
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.dark table td,
+.dark .table td {
+    border-color: var(--dark-border-primary) !important;
+    color: var(--dark-text-secondary);
+    padding: 0.875rem 1rem;
+}
+
+.dark table tbody tr,
+.dark .table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.dark table tbody tr:hover,
+.dark .table tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.08) !important;
+}
+
+.dark .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(51, 65, 85, 0.4) !important;
+}
+
+.dark .table-striped tbody tr:nth-of-type(even) {
+    background-color: var(--dark-bg-secondary) !important;
+}
+
+/* DataTables - تحسينات خاصة */
+.dark .dataTables_wrapper {
+    color: var(--dark-text-primary);
+}
+
+.dark .dataTables_wrapper .dataTables_length select,
+.dark .dataTables_wrapper .dataTables_filter input {
+    background-color: var(--dark-bg-secondary) !important;
+    border: 1px solid var(--dark-border-primary) !important;
+    color: var(--dark-text-primary) !important;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+}
+
+.dark .dataTables_wrapper .dataTables_paginate .paginate_button {
+    background-color: var(--dark-bg-secondary) !important;
+    color: var(--dark-text-primary) !important;
+    border: 1px solid var(--dark-border-primary) !important;
+    border-radius: 0.375rem;
+    margin: 0 0.25rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.dark .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: var(--dark-bg-tertiary) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--primary-light) !important;
+}
+
+.dark .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+}
+
+.dark .dataTables_wrapper .dataTables_info {
+    color: var(--dark-text-muted);
+}
+
+/* ===================================
+   تحسينات البطاقات - Cards
+   =================================== */
+
+.dark .card {
+    background-color: var(--dark-bg-secondary) !important;
+    border: 1px solid var(--dark-border-primary) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.dark .card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.dark .card-header {
+    background-color: var(--dark-bg-tertiary) !important;
+    border-bottom: 1px solid var(--dark-border-secondary) !important;
+    color: var(--dark-text-primary);
+    font-weight: 600;
+}
+
+.dark .card-body {
+    color: var(--dark-text-secondary);
+}
+
+.dark .card-footer {
+    background-color: var(--dark-bg-tertiary) !important;
+    border-top: 1px solid var(--dark-border-secondary) !important;
+}
+
+/* ===================================
+   تحسينات التنبيهات - Alerts
+   =================================== */
+
+.dark .alert {
+    border-radius: 0.5rem;
+    padding: 1rem 1.25rem;
+    border-width: 1px;
+    font-weight: 500;
+}
+
+.dark .alert-success {
+    background-color: rgba(16, 185, 129, 0.15) !important;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+    color: #6ee7b7 !important;
+}
+
+.dark .alert-danger,
+.dark .alert-error {
+    background-color: rgba(239, 68, 68, 0.15) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #fca5a5 !important;
+}
+
+.dark .alert-warning {
+    background-color: rgba(245, 158, 11, 0.15) !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
+    color: #fcd34d !important;
+}
+
+.dark .alert-info {
+    background-color: rgba(6, 182, 212, 0.15) !important;
+    border-color: rgba(6, 182, 212, 0.3) !important;
+    color: #7dd3fc !important;
+}
+
+.dark .alert-primary {
+    background-color: rgba(59, 130, 246, 0.15) !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+    color: #93c5fd !important;
+}
+
+/* ===================================
+   تحسينات القوائم المنسدلة - Dropdowns
+   =================================== */
+
+.dark .dropdown-menu {
+    background-color: var(--dark-bg-secondary) !important;
+    border: 1px solid var(--dark-border-primary) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.dark .dropdown-item {
+    color: var(--dark-text-secondary) !important;
+    transition: all 0.2s ease;
+}
+
+.dark .dropdown-item:hover,
+.dark .dropdown-item:focus {
+    background-color: var(--dark-bg-tertiary) !important;
+    color: var(--dark-text-primary) !important;
+}
+
+.dark .dropdown-item.active {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.dark .dropdown-divider {
+    border-top-color: var(--dark-border-primary);
+}
+
+/* ===================================
+   تحسينات الشريط الجانبي - Sidebar
+   =================================== */
+
+.dark .sidebar {
+    background-color: var(--dark-bg-primary) !important;
+    border-color: var(--dark-border-primary) !important;
+}
+
+.dark .sidebar-item {
+    color: var(--dark-text-secondary);
+}
+
+.dark .sidebar-item:hover {
+    background-color: var(--dark-bg-secondary);
+    color: var(--primary-light);
+}
+
+.dark .sidebar-item.active {
+    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    color: white !important;
+}
+
+/* ===================================
+   تحسينات الشريط العلوي - Navbar
+   =================================== */
+
+.dark .navbar,
+.dark .topbar {
+    background-color: var(--dark-bg-secondary) !important;
+    border-color: var(--dark-border-primary) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ===================================
+   تحسينات الروابط - Links
+   =================================== */
+
+.dark a {
+    color: var(--primary-light);
+    transition: color 0.2s ease;
+}
+
+.dark a:hover {
+    color: #93c5fd;
+}
+
+/* ===================================
+   تحسينات النصوص - Text
+   =================================== */
+
+.dark .text-muted {
+    color: var(--dark-text-muted) !important;
+}
+
+.dark h1, .dark h2, .dark h3, 
+.dark h4, .dark h5, .dark h6 {
+    color: var(--dark-text-primary);
+}
+
+.dark p {
+    color: var(--dark-text-secondary);
+}
+
+/* ===================================
+   تحسينات الحدود - Borders
+   =================================== */
+
+.dark .border {
+    border-color: var(--dark-border-primary) !important;
+}
+
+.dark .border-top {
+    border-top-color: var(--dark-border-primary) !important;
+}
+
+.dark .border-bottom {
+    border-bottom-color: var(--dark-border-primary) !important;
+}
+
+.dark .border-start,
+.dark .border-left {
+    border-left-color: var(--dark-border-primary) !important;
+}
+
+.dark .border-end,
+.dark .border-right {
+    border-right-color: var(--dark-border-primary) !important;
+}
+
+/* ===================================
+   تحسينات الخلفيات - Backgrounds
+   =================================== */
+
+.dark .bg-light {
+    background-color: var(--dark-bg-tertiary) !important;
+}
+
+.dark .bg-white {
+    background-color: var(--dark-bg-secondary) !important;
+}
+
+.dark .bg-gray-50 {
+    background-color: var(--dark-bg-primary) !important;
+}
+
+.dark .bg-gray-100 {
+    background-color: var(--dark-bg-secondary) !important;
+}
+
+.dark .bg-gray-200 {
+    background-color: var(--dark-bg-tertiary) !important;
+}
+
+/* ===================================
+   تحسينات الظلال - Shadows
+   =================================== */
+
+.dark .shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark .shadow-sm {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .shadow-lg {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark .shadow-xl {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ===================================
+   تحسينات الشارات - Badges
+   =================================== */
+
+.dark .badge {
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+}
+
+.dark .badge-primary,
+.dark .bg-blue-100 {
+    background-color: rgba(59, 130, 246, 0.2) !important;
+    color: #93c5fd !important;
+}
+
+.dark .badge-success,
+.dark .bg-green-100 {
+    background-color: rgba(16, 185, 129, 0.2) !important;
+    color: #6ee7b7 !important;
+}
+
+.dark .badge-warning,
+.dark .bg-yellow-100 {
+    background-color: rgba(245, 158, 11, 0.2) !important;
+    color: #fcd34d !important;
+}
+
+.dark .badge-danger,
+.dark .bg-red-100 {
+    background-color: rgba(239, 68, 68, 0.2) !important;
+    color: #fca5a5 !important;
+}
+
+.dark .badge-info,
+.dark .bg-cyan-100 {
+    background-color: rgba(6, 182, 212, 0.2) !important;
+    color: #7dd3fc !important;
+}
+
+/* ===================================
+   تحسينات الـ Modal - Modals
+   =================================== */
+
+.dark .modal-content {
+    background-color: var(--dark-bg-secondary);
+    border: 1px solid var(--dark-border-primary);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.dark .modal-header {
+    background-color: var(--dark-bg-tertiary);
+    border-bottom: 1px solid var(--dark-border-secondary);
+    color: var(--dark-text-primary);
+}
+
+.dark .modal-body {
+    color: var(--dark-text-secondary);
+}
+
+.dark .modal-footer {
+    background-color: var(--dark-bg-tertiary);
+    border-top: 1px solid var(--dark-border-secondary);
+}
+
+.dark .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* ===================================
+   تحسينات الـ Tooltip - Tooltips
+   =================================== */
+
+.dark .tooltip {
+    opacity: 1 !important;
+}
+
+.dark .tooltip-inner {
+    background-color: var(--dark-bg-tertiary);
+    color: var(--dark-text-primary);
+    border: 1px solid var(--dark-border-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ===================================
+   تحسينات الـ Pagination
+   =================================== */
+
+.dark .pagination .page-link {
+    background-color: var(--dark-bg-secondary);
+    border-color: var(--dark-border-primary);
+    color: var(--dark-text-secondary);
+}
+
+.dark .pagination .page-link:hover {
+    background-color: var(--dark-bg-tertiary);
+    border-color: var(--primary-color);
+    color: var(--primary-light);
+}
+
+.dark .pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* ===================================
+   تحسينات الـ Progress Bars
+   =================================== */
+
+.dark .progress {
+    background-color: var(--dark-bg-tertiary);
+}
+
+.dark .progress-bar {
+    background-color: var(--primary-color);
+}
+
+/* ===================================
+   تحسينات الـ Breadcrumb
+   =================================== */
+
+.dark .breadcrumb {
+    background-color: var(--dark-bg-secondary);
+}
+
+.dark .breadcrumb-item {
+    color: var(--dark-text-muted);
+}
+
+.dark .breadcrumb-item.active {
+    color: var(--dark-text-primary);
+}
+
+.dark .breadcrumb-item + .breadcrumb-item::before {
+    color: var(--dark-text-muted);
+}
+
+/* ===================================
+   تحسينات الـ List Group
+   =================================== */
+
+.dark .list-group-item {
+    background-color: var(--dark-bg-secondary);
+    border-color: var(--dark-border-primary);
+    color: var(--dark-text-secondary);
+}
+
+.dark .list-group-item:hover {
+    background-color: var(--dark-bg-tertiary);
+    color: var(--dark-text-primary);
+}
+
+.dark .list-group-item.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* ===================================
+   تحسينات الـ Code Blocks
+   =================================== */
+
+.dark code {
+    background-color: var(--dark-bg-tertiary);
+    color: #f472b6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.dark pre {
+    background-color: var(--dark-bg-tertiary);
+    color: var(--dark-text-primary);
+    border: 1px solid var(--dark-border-primary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+/* ===================================
+   تحسينات التمرير - Scrollbar
+   =================================== */
+
+.dark ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: var(--dark-bg-secondary);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: var(--dark-bg-hover);
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* ===================================
+   تحسينات الرسوم المتحركة - Animations
+   =

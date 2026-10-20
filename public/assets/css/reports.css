@@ -1,0 +1,70 @@
+/* reports.css - page specific styles to match system look & dark mode */
+:root{
+    --card-bg: #ffffff;
+    --card-border: #e5e7eb;
+    --text-primary: #111827;
+}
+.dark:root, .dark{
+    --card-bg: #1f2937;
+    --card-border: #374151;
+    --text-primary: #f9fafb;
+}
+
+/* unify card appearance */
+.performance-card, .employee-of-week, .advanced-filters, .employee-performance-section, .bg-white {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ensure badges look consistent */
+.badge, .badge-success, .badge-warning, .badge-danger, .badge-info {
+    font-weight: 600;
+}
+
+/* make overlay centered and scrollable */
+.overlay-content {
+    background: var(--card-bg) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ensure inputs in dark mode have appropriate background */
+.dark .filter-control, .filter-control {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--text-primary);
+}
+
+/* performance cards grid tweaks */
+.performance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+/* fix progress bar heights */
+.progress-bar { height: 8px; background: #e5e7eb; }
+.dark .progress-bar { background: #374151; }
+.progress-fill { height: 100%; }
+
+/* small responsive fixes */
+@media (max-width: 1024px){
+    .performance-grid { grid-template-columns: 1fr; }
+}
+
+/* ensure delinquents overlay has max height */
+#delinquentsOverlay .overlay-content { max-height: 85vh; overflow-y: auto; }
+
+/* tweaks to match site buttons */
+.apply-filters-btn, .reset-filters-btn, .export-btn {
+    border-radius: 8px;
+}
+
+/* subtle shadow on cards */
+.performance-card, .employee-of-week, .advanced-filters { box-shadow: 0 6px 20px rgba(2,6,23,0.08); }
+
+/* ensure tables are legible in dark */
+.table td, .table th { border-color: var(--card-border); }
+
+/* accessibility: larger tap targets on mobile for filter buttons */
+.filter-toggle, .quick-filter-btn { min-height: 44px; }
